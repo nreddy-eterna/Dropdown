@@ -1,0 +1,119 @@
+@import "../../assets/styles/app";
+
+.dropdown {
+  position: relative;
+  height: 100%;
+  width: 155px;
+
+  @include desktop2 {
+    width: $k * 160px;
+  }
+
+  .btn {
+    @include button;
+    @include centerRow;
+    //border-right: 1px solid $color_lines;
+    //border-left: 1px solid $color_lines;
+    width: 100%;
+    height: 100%;
+
+    svg {
+      width: 16px;
+      height: 16px;
+
+      @include desktop2 {
+        width: $k * 16px;
+        height: $k * 16px;
+      }
+
+      path {
+        fill: $color_main;
+        fill-opacity: 1;
+      }
+    }
+
+    p {
+      margin-left: 8px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 140%;
+      color: $color_main_100;
+
+      @include desktop2 {
+        margin-left: $k * 8px;
+        font-size: $k * 12px;
+      }
+    }
+  }
+
+  .menu {
+    background-color: $color_bg_and_text;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    transform: translateY(100%);
+    padding: 6px 0;
+    border: 1px solid $color_lines;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(100%) scaleY(0);
+    transform-origin: top;
+
+    @include desktop2 {
+      padding: $k * 6px 0;
+    }
+
+    button {
+      @include button;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      background-color: transparent;
+      transition: 0.3s;
+
+      @include desktop2 {
+        padding: $k * 6px $k * 12px;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+
+        @include desktop2 {
+          width: $k * 16px;
+          height: $k * 16px;
+        }
+
+        path {
+          fill: #FFF;
+          fill-opacity: 0.5;
+        }
+      }
+
+      span {
+        margin-left: 8px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 140%;
+        color: $color_body_50;
+
+        @include desktop2 {
+          font-size: $k * 12px;
+        }
+
+      }
+
+      &:hover {
+        background-color: #222;
+      }
+    }
+  }
+
+  .menuActive {
+    opacity: 1;
+    transform: translateY(100%) scaleY(1);
+  }
+}
